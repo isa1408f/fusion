@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!$s%=ec3hai1)0zowq)o9+289)^(#*7@v02aje8lnfrfqh11jt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 """
-# local
+# local postgresql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -89,8 +89,8 @@ DATABASES = {
     }
 }
 
-"""
-# servidor
+
+# servidor postgresql
 
 DATABASES = {
     'default': {
@@ -102,6 +102,38 @@ DATABASES = {
         'PORT': 10667,
     }
 }
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fusion',
+        'USER': 'isaferfer',
+        'PASSWORD': 'isa1408fer',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', innodb_strict_mode=1",
+            'charset': 'utf8mb4',
+            "autocommit": True,
+        }
+    }
+}
+
+"""
+# servidor
+DATABASES = {
+    'default':  {
+        'ENGINE':  'django.db.backends.mysql',
+        'NAME':  'isac1408f$fusion',
+        'USER':  'isac14fer',
+        'PASSWORD':  'post1408',
+        'HOST':  'isac1408f.mysql.pythonanywhere-services.com',
+    }
+}
+
+"""
+
 
 
 # Password validation
